@@ -218,7 +218,7 @@
 #X obj 321 35 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 230 48 del 1000;
-#X obj 304 178 s MOT4-RESET_ZERO;
+#X obj 301 177 s MOT4-RESET_ZERO;
 #X obj 83 126 &&;
 #X obj 96 102 t b f;
 #X obj 96 81 r MOT4-status-ok;
@@ -268,7 +268,7 @@
 #X connect 27 0 15 0;
 #X connect 28 0 21 0;
 #X connect 29 0 30 0;
-#X restore 26 417 pd SET_ZEROS;
+#X restore 22 436 pd SET_ZEROS;
 #N canvas 453 631 681 319 OSC 0;
 #X obj 58 143 netsend -u -b;
 #X floatatom 58 165 5 0 0 0 - - -;
@@ -416,8 +416,8 @@
 #X restore 208 414 pd startButton;
 #X obj 208 435 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 98 355 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
+#X obj 46 407 bng 15 250 50 0 empty RESET_ALL_ZEROS RESET_ALL_ZEROS
+17 7 0 10 -262144 -1 -1;
 #N canvas 56 545 450 300 OFFSETS 0;
 #X obj 60 111 s 1Y-offset;
 #X floatatom 382 69 5 0 0 0 - - -;

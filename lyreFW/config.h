@@ -2,6 +2,7 @@
 #define _CONFIG_H_
 
 #define RAMP_UINCPOW 6
+#define RAMP_VPOW 5
 #define RAMP_MAXERROR 1
 
 /*#define MOTC_END K5
@@ -12,7 +13,7 @@
 #define MOTD_A K1
 #define MOTD_B K2
 #define MOTD_END K3
-#define MOTD_ENDLEVEL 1
+#define MOTD_ENDLEVEL 0
 
 #define SERVO1 K4
 #define SERVO2 K5

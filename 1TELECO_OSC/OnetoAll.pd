@@ -1,0 +1,26 @@
+#N canvas 1140 96 753 328 12;
+#X obj 139 21 inlet;
+#X obj 30 18 r fromTeleco;
+#X obj 30 78 route proj1_\$1;
+#X obj 30 48 spigot, f 16;
+#X obj 30 103 t b a, f 11;
+#X msg 30 128 2 \, 3 \, 4;
+#X obj 30 213 list append;
+#X obj 30 162 list append \$1;
+#X msg 30 187 symbol proj\$1_\$2;
+#X obj 30 238 list trim;
+#X obj 206 35 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 30 263 s fromTeleco;
+#X connect 0 0 3 1;
+#X connect 1 0 3 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 4 1 6 1;
+#X connect 5 0 7 0;
+#X connect 6 0 9 0;
+#X connect 7 0 8 0;
+#X connect 8 0 6 0;
+#X connect 9 0 11 0;
+#X connect 10 0 3 1;
