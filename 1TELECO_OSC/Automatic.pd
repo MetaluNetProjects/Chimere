@@ -34,6 +34,9 @@
 #X obj 178 276 param_2f \$0 pantilt PRESETS_\$3 PRESETS_\$3_auto \$3-line;
 #X obj 859 256 s \$0-PLAYED_CONTROL;
 #X obj 859 230 route Automatic\$1;
+#X obj 674 313 list prepend Automatic\$1;
+#X obj 674 288 r \$0-toRecord;
+#X obj 674 340 s \$3-toRecord;
 #X connect 1 0 3 0;
 #X connect 1 1 4 0;
 #X connect 2 0 1 0;
@@ -63,3 +66,5 @@
 #X connect 25 0 5 0;
 #X connect 27 0 2 0;
 #X connect 34 0 33 0;
+#X connect 35 0 37 0;
+#X connect 36 0 35 0;

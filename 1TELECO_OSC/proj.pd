@@ -34,29 +34,27 @@
 #X obj 617 45 apsubmaster \$0-PRESETS_LUM PRESETS_LUM proj\$1;
 #X obj 25 228 param_2f \$0 pantilt \$0-PRESETS_MOT NONE \$0-Vrot;
 #X obj 26 255 param_f \$0 rotation \$0-PRESETS_MOT NONE \$0-Vrot;
-#X obj 401 230 param_f \$0 lumiere1 \$0-PRESETS_LUM PRESETS_LUM\$1
-\$0-Vlum;
+#X obj 401 230 param_f \$0 lumiere1 \$0-PRESETS_LUM PRESETS_LUM\$1 \$0-Vlum;
 #X obj 101 189 s \$0-Vlum;
 #X obj 410 543 s \$0-toTeleco;
 #X obj 410 512 list prepend lumiere1_vu;
 #X obj 588 513 list prepend lumiere2_vu;
 #X obj 767 513 list prepend lumiere3_vu;
-#X obj 401 258 param_f \$0 lumiere2 \$0-PRESETS_LUM PRESETS_LUM\$1
-\$0-Vlum;
-#X obj 401 283 param_f \$0 lumiere3 \$0-PRESETS_LUM \$0-PRESETS_LUMG
-\$0-Vlum;
+#X obj 401 258 param_f \$0 lumiere2 \$0-PRESETS_LUM PRESETS_LUM\$1 \$0-Vlum;
+#X obj 401 283 param_f \$0 lumiere3 \$0-PRESETS_LUM \$0-PRESETS_LUMG \$0-Vlum;
 #X obj 616 71 apsubmaster \$0-PRESETS_LUMG PRESETS_LUMG proj\$1;
 #X obj 26 161 route Vrot Vlum, f 22;
-#X obj 400 329 param_f \$0 mode1 \$0-PRESETS_LUM PRESETS_LUM\$1 \$0-Vlum
-;
-#X obj 400 353 param_f \$0 mode2 \$0-PRESETS_LUM PRESETS_LUM\$1 \$0-Vlum
-;
-#X obj 400 378 param_f \$0 mode3 \$0-PRESETS_LUM PRESETS_LUM\$1 \$0-Vlum
-;
+#X obj 400 329 param_f \$0 mode1 \$0-PRESETS_LUM PRESETS_LUM\$1 \$0-Vlum;
+#X obj 400 353 param_f \$0 mode2 \$0-PRESETS_LUM PRESETS_LUM\$1 \$0-Vlum;
+#X obj 400 378 param_f \$0 mode3 \$0-PRESETS_LUM PRESETS_LUM\$1 \$0-Vlum;
 #X obj 313 95 s CONTROL;
 #X obj 474 14 r PLAYED_CONTROL;
 #X obj 474 39 route proj\$1;
 #X obj 474 64 s \$0-PLAYED_CONTROL;
+#X obj 312 151 list prepend proj\$1;
+#X obj 312 178 list trim;
+#X obj 312 122 r \$0-toRecord;
+#X obj 312 206 s REC_CONTROL;
 #X connect 0 0 44 0;
 #X connect 1 0 2 0;
 #X connect 2 0 14 0;
@@ -95,3 +93,6 @@
 #X connect 44 1 36 0;
 #X connect 49 0 50 0;
 #X connect 50 0 51 0;
+#X connect 52 0 53 0;
+#X connect 53 0 55 0;
+#X connect 54 0 52 0;

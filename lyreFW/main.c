@@ -130,7 +130,7 @@ void setup(void)
 	rampSetPos(&servoRamps[1], 10000);
 
 	EEreadMain();
-	DCMOTOR(D).Setting.onlyPositive = 0; // disable automatic end switch protection
+	DCMOTOR(D).Setting.onlyPositive = 1; // disable automatic end switch protection
 	DCMOTOR(D).Setting.PosErrorGain = 4;
 	DCMOTOR(D).Setting.PosWindow = 10;
 	motorEndWasOn = 0;
