@@ -1,4 +1,4 @@
-#N canvas 6 75 558 520 10;
+#N canvas 6 94 558 520 10;
 #X obj 135 35 inlet;
 #X obj 135 419 s OSCrec-rcv;
 #X msg 135 382 replay;
@@ -20,16 +20,15 @@
 #X obj 135 164 sel 0 1;
 #X obj 135 253 t f f;
 #X msg 135 228 1;
-#X obj 210 260 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 210 260 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X msg 217 163 0;
 #X obj 135 77 sel 1 0;
 #X obj 135 102 t b b;
 #X msg 185 164 1;
-#X obj 165 290 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 165 290 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X connect 0 0 22 0;
-#X connect 2 0 1 0;
 #X connect 3 0 1 0;
 #X connect 4 0 13 0;
 #X connect 5 0 3 0;

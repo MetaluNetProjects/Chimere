@@ -1,9 +1,9 @@
-#N canvas 450 169 772 678 10;
+#N canvas 704 272 772 678 10;
 #X declare -path Fraise -stdpath Fraise;
-#X declare -path abs -path main;
+#X declare -path abs -path main -path AutoPreset;
 #X obj 21 38 pied/pied 0 41424;
 #X obj 21 16 declare -path Fraise -stdpath Fraise;
-#N canvas 531 80 905 566 NETWORK/SEQUENCE 0;
+#N canvas 531 94 905 566 NETWORK/SEQUENCE 0;
 #X obj 147 260 s reSend;
 #X obj 121 96 f;
 #X obj 150 96 r reSend;
@@ -232,7 +232,7 @@
 -1 -1;
 #X obj 263 316 change;
 #X obj 263 338 outlet status-ok;
-#X floatatom 156 137 5 0 0 0 - - -, f 5;
+#X floatatom 156 137 5 0 0 0 - - -;
 #X connect 0 0 3 0;
 #X connect 1 0 5 0;
 #X connect 2 0 22 0;
@@ -269,9 +269,9 @@
 #X connect 28 0 21 0;
 #X connect 29 0 30 0;
 #X restore 26 417 pd SET_ZEROS;
-#N canvas 177 478 681 319 OSC 0;
+#N canvas 453 631 681 319 OSC 0;
 #X obj 58 143 netsend -u -b;
-#X floatatom 58 165 5 0 0 0 - - -, f 5;
+#X floatatom 58 165 5 0 0 0 - - -;
 #X msg 226 156 connect 192.168.1.29 9001;
 #X obj 226 131 loadbang;
 #X msg 298 129 disconnect;
@@ -299,7 +299,7 @@
 -1;
 #X obj 457 53 sel 0;
 #X obj 457 31 r NET-nbclients;
-#X floatatom 519 63 5 0 0 0 - - -, f 5;
+#X floatatom 519 63 5 0 0 0 - - -;
 #X connect 0 0 1 0;
 #X connect 2 0 0 0;
 #X connect 4 0 0 0;
@@ -348,7 +348,6 @@
 #X connect 7 0 3 0;
 #X connect 8 0 3 0;
 #X restore 140 563 pd test;
-#X obj 291 16 declare -path abs -path main;
 #N canvas 337 394 708 282 audioPlayer 0;
 #X obj 70 234 *~;
 #X obj 116 235 *~;
@@ -357,7 +356,7 @@
 #X obj 70 256 dac~;
 #X obj 70 198 readsf~ 2 1e+06;
 #X msg 70 93 1;
-#X obj 102 22 r OSCrec-rcv;
+#X obj 103 8 r OSCrec-rcv;
 #X obj 102 44 route stop replay;
 #X msg 30 92 0;
 #X obj 370 129 hsl 128 15 0 1 0 1 empty empty empty -2 -8 0 10 -262144
@@ -366,7 +365,7 @@
 #X obj 254 26 r OSCrec-snd;
 #X obj 254 48 route stop;
 #X msg 70 119 open /home/pi/Datas/Chimere/\$1.wav \, 1;
-#X floatatom 383 183 5 0 0 0 - - -, f 5;
+#X floatatom 383 183 5 0 0 0 - - -;
 #X connect 0 0 4 0;
 #X connect 1 0 4 1;
 #X connect 2 0 3 0;
@@ -388,11 +387,11 @@
 #X restore 25 502 pd audioPlayer;
 #X obj 287 42 loadbang;
 #X msg 287 64 \; pd dsp 1;
-#N canvas 315 89 450 414 startButton 0;
+#N canvas 315 94 450 414 startButton 0;
 #X obj 100 193 shell;
 #X msg 71 104 gpio mode 0 up;
 #X msg 113 164 gpio read 0;
-#X floatatom 56 248 5 0 0 0 - - -, f 5;
+#X floatatom 56 248 5 0 0 0 - - -;
 #X obj 71 33 loadbang;
 #X obj 197 82 del 1000;
 #X obj 197 105 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
@@ -415,13 +414,13 @@
 #X connect 10 0 7 0;
 #X connect 11 0 10 0;
 #X restore 208 414 pd startButton;
-#X obj 208 435 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 208 435 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 98 355 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #N canvas 56 545 450 300 OFFSETS 0;
 #X obj 60 111 s 1Y-offset;
-#X floatatom 382 69 5 0 0 0 - - -, f 5;
+#X floatatom 382 69 5 0 0 0 - - -;
 #X obj 157 111 s 2Y-offset;
 #X msg 157 79 57;
 #X msg 60 80 48;
@@ -454,13 +453,16 @@
 #X obj 31 118 lyre 1 2460;
 #X obj 506 118 lyre 4 2460;
 #X obj 208 456 start;
-#X connect 0 0 21 0;
+#X obj 37 610 1TELECO_OSC/TelecoMaster;
+#X obj 291 16 declare -path abs -path main -path AutoPreset;
+#X obj 234 591 CONTROLrecorder;
+#X connect 0 0 20 0;
 #X connect 4 0 3 0;
 #X connect 5 0 4 0;
-#X connect 13 0 14 0;
-#X connect 15 0 16 0;
-#X connect 16 0 26 0;
-#X connect 17 0 7 0;
-#X connect 20 0 19 0;
-#X connect 21 0 7 0;
-#X connect 26 0 7 0;
+#X connect 12 0 13 0;
+#X connect 14 0 15 0;
+#X connect 15 0 25 0;
+#X connect 16 0 7 0;
+#X connect 19 0 18 0;
+#X connect 20 0 7 0;
+#X connect 25 0 7 0;
