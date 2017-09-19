@@ -54,6 +54,7 @@ t_delay servoDelays[2];
 int servoVals[2];
 unsigned char PERIOD=25;
 //unsigned char t=25,t2;
+unsigned char motorEndWasOn;
 
 //long int TestVar,TestVar2;
 t_delay mainDelay;
@@ -95,7 +96,6 @@ void setup(void)
 	IPR1bits.TMR1IP=1;
 	
 	dcmotorInit(D);
-	
 #if 0
 	DCMOTOR(D).Setting.PosWindow = 100;
 	DCMOTOR(D).Setting.PwmMin = 50;
@@ -128,8 +128,10 @@ void setup(void)
 	rampInit(&servoRamps[1]);
 	rampSetPos(&servoRamps[0], 10000);
 	rampSetPos(&servoRamps[1], 10000);
-	
+
 	EEreadMain();
+	DCMOTOR(D).Setting.onlyPositive = 0; // disable automatic end switch protection
+	motorEndWasOn = 0;
 	delayStart(mainDelay, 5000); 	// init the mainDelay to 5 ms
 }
 
@@ -164,6 +166,12 @@ void loop() {
 		}*/
 
 		DCMOTOR_COMPUTE(D, ASYM);
+		if(DCMOTOR(D).VolVars.end && (motorEndWasOn == 0)) {
+			DCMOTOR(D).Vars.PWMConsign = 0;
+			DCMOTOR(D).Setting.Mode = 0;
+		}
+		if(DCMOTOR(D).VolVars.end) motorEndWasOn = 1;
+		else motorEndWasOn = 0;
 
 		//fraiseService();
 		
@@ -181,7 +189,7 @@ void loop() {
 		//t = t - 1;
 		//count = 0;
 		if(--count == 0){
-			printf("CM %ld\n",DCMOTOR_GETPOS(D));
+			printf("CM %ld %d %d %ld\n",DCMOTOR_GETPOS(D), (int)DCMOTOR(D).VolVars.homed/*(int)motorEndWasOn*/, (int)DCMOTOR(D).VolVars.end, (long)rampGetPos(&DCMOTOR(D).PosRamp));
 			count = PERIOD;
 			//t2++;
 			/*printf("CM %ld %ld %d %d\n",DCMOTOR_GETPOS(D),(long)rampGetPos(&DCMOTOR(D).PosRamp), DCMOTOR(D).Vars.PWMConsign,DCMOTOR(D).VolVars.homed);*/
