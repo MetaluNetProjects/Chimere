@@ -1,9 +1,9 @@
-#N canvas 474 184 660 591 10;
+#N canvas 475 181 660 591 10;
 #X declare -path Fraise -stdpath Fraise;
 #X declare -path abs -path main;
 #X obj 21 38 pied/pied 0 41424;
 #X obj 21 16 declare -path Fraise -stdpath Fraise;
-#N canvas 531 86 905 566 NETWORK/SEQUENCE 1;
+#N canvas 531 83 905 566 NETWORK/SEQUENCE 0;
 #X obj 147 260 s reSend;
 #X obj 121 96 f;
 #X obj 150 96 r reSend;
@@ -23,7 +23,7 @@
 #X msg 169 144 1;
 #X obj 130 169 change;
 #X obj 130 194 tgl 15 0 \$0-CONNECTED empty CONNECTED 17 7 0 10 -262144
--1 -1 1 1;
+-1 -1 0 1;
 #X obj 109 218 outlet;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
@@ -35,7 +35,7 @@
 #X connect 6 0 7 0;
 #X connect 6 0 8 0;
 #X restore 79 525 pd test_connected;
-#X obj 79 546 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 79 546 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 120 169 r NET-nbclients;
 #X obj 120 194 sel 0;
@@ -395,7 +395,7 @@
 #X obj 287 42 loadbang;
 #X msg 287 64 \; pd dsp 1;
 #X msg 282 531 stop;
-#N canvas 312 96 450 414 startButton 0;
+#N canvas 313 93 450 414 startButton 0;
 #X obj 100 193 shell;
 #X msg 71 104 gpio mode 0 up;
 #X msg 113 164 gpio read 0;
@@ -404,23 +404,23 @@
 #X obj 197 82 del 1000;
 #X obj 197 105 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
-#X obj 126 223 change 1;
 #X obj 126 295 outlet;
-#X obj 126 245 == 0;
 #X msg 282 91 50;
 #X obj 197 125 metro 100;
+#X obj 126 245 == 1;
+#X obj 126 223 change 0;
 #X connect 0 0 3 0;
-#X connect 0 0 7 0;
+#X connect 0 0 11 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
 #X connect 4 0 1 0;
 #X connect 4 0 5 0;
 #X connect 5 0 6 0;
-#X connect 6 0 11 0;
-#X connect 7 0 9 0;
-#X connect 9 0 8 0;
-#X connect 10 0 11 1;
-#X connect 11 0 2 0;
+#X connect 6 0 9 0;
+#X connect 8 0 9 1;
+#X connect 9 0 2 0;
+#X connect 10 0 7 0;
+#X connect 11 0 10 0;
 #X restore 229 425 pd startButton;
 #X obj 229 446 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
