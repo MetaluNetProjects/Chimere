@@ -3,7 +3,7 @@
 #X declare -path abs -path main;
 #X obj 21 38 pied/pied 0 41424;
 #X obj 21 16 declare -path Fraise -stdpath Fraise;
-#N canvas 531 89 905 566 NETWORK/SEQUENCE 0;
+#N canvas 531 86 905 566 NETWORK/SEQUENCE 1;
 #X obj 147 260 s reSend;
 #X obj 121 96 f;
 #X obj 150 96 r reSend;
@@ -195,7 +195,7 @@
 #X msg 420 452 load \$1;
 #X msg 420 430 1;
 #X obj 26 354 loadbang;
-#N canvas 9 211 562 386 SET_ZEROS 0;
+#N canvas 10 208 562 386 SET_ZEROS 0;
 #X obj 57 15 r MOT1-status-ok;
 #X obj 70 36 r MOT2-status-ok;
 #X obj 83 59 r MOT3-status-ok;
@@ -263,7 +263,7 @@
 #X connect 27 0 15 0;
 #X connect 28 0 21 0;
 #X restore 26 376 pd SET_ZEROS;
-#N canvas 708 527 681 319 OSC 0;
+#N canvas 709 524 681 319 OSC 0;
 #X obj 58 143 netsend -u -b;
 #X floatatom 58 165 5 0 0 0 - - -, f 5;
 #X msg 226 156 connect 192.168.1.29 9001;
@@ -314,8 +314,8 @@
 #X connect 24 0 21 0;
 #X restore 133 343 pd OSC;
 #X obj 133 364 OSCrecorder;
-#X obj 255 550 s OSCrec-rcv;
-#X msg 255 529 replay;
+#X obj 229 553 s OSCrec-rcv;
+#X msg 229 532 replay;
 #N canvas 56 545 450 300 offsets 0;
 #X obj 60 111 s 1Y-offset;
 #X floatatom 382 69 5 0 0 0 - - -, f 5;
@@ -394,7 +394,7 @@
 #X restore 28 468 pd audioPlayer;
 #X obj 287 42 loadbang;
 #X msg 287 64 \; pd dsp 1;
-#X msg 308 528 stop;
+#X msg 282 531 stop;
 #N canvas 312 96 450 414 startButton 0;
 #X obj 100 193 shell;
 #X msg 71 104 gpio mode 0 up;
@@ -421,22 +421,26 @@
 #X connect 9 0 8 0;
 #X connect 10 0 11 1;
 #X connect 11 0 2 0;
-#X restore 255 422 pd startButton;
-#X obj 255 443 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X restore 229 425 pd startButton;
+#X obj 229 446 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 255 463 sel 1;
-#X obj 255 484 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 229 466 sel 1;
+#X obj 229 487 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 255 504 sel 1 0;
-#X obj 316 450 r OSCrec-snd;
-#X msg 316 494 set 0;
-#X obj 316 472 route stop;
+#X obj 229 507 sel 1 0;
+#X obj 290 453 r OSCrec-snd;
+#X msg 290 497 set 0;
+#X obj 290 475 route stop;
 #X obj 338 118 lyre 3 2460;
 #X obj 179 118 lyre 2 2460;
 #X obj 21 118 lyre 1 2460;
 #X obj 496 118 lyre 4 2460;
+#X obj 326 531 r STOPMOTORS;
+#X obj 98 355 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X connect 4 0 3 0;
 #X connect 5 0 4 0;
+#X connect 6 0 7 0;
 #X connect 11 0 10 0;
 #X connect 16 0 17 0;
 #X connect 18 0 10 0;
@@ -449,3 +453,5 @@
 #X connect 24 0 26 0;
 #X connect 25 0 22 0;
 #X connect 26 0 25 0;
+#X connect 31 0 18 0;
+#X connect 32 0 7 0;
