@@ -1,0 +1,9 @@
+#N canvas 398 153 263 142 10;
+#X obj 11 11 cnv 15 133 40 empty \$0-title-can 1R 50 8 0 14 -233017
+-66577 0;
+#X obj 14 25 hsl 128 15 -150 150 0 0 \$0-remote-snd \$0-remote-rcv
+set:69.685 20 8 0 10 -4032 -1 -1 9300 1;
+#X obj 14 41 hsl 128 10 -150 150 0 0 \$0-current-snd \$0-current-rcv
+current:69.685 20 5 0 10 -204800 -1 -1 9300 1;
+#X obj 11 76 remoteCOMMON \$0 \$1;
+#X coords 0 -1 1 1 135 42 1 10 10;

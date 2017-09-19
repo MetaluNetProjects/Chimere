@@ -1,0 +1,33 @@
+#N canvas 396 157 396 270 10;
+#X obj 11 11 cnv 15 133 40 empty \$0-title-can 1X 50 8 0 14 -233017
+-66577 0;
+#X obj 14 25 hsl 128 15 -100 100 0 0 \$0-remote-snd \$0-remote-rcv
+set:38 20 8 0 10 -260097 -1 -1 8800 1;
+#X obj 14 41 hsl 128 10 -100 100 0 0 \$0-current-snd \$0-current-rcv
+current:38 20 5 0 10 -261682 -1 -1 8763 1;
+#X obj 11 76 remoteCOMMON \$0 \$1;
+#X obj 207 41 loadbang;
+#X obj 207 63 symbol \$1;
+#X obj 207 85 list fromsymbol;
+#X obj 269 36 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 207 108 list split 1;
+#X obj 241 129 sel 88 89;
+#X text 299 129 X/Y;
+#X msg 241 152 range -100 100;
+#X msg 266 175 range -60 140;
+#X obj 252 221 s \$0-remote-rcv;
+#X obj 241 198 t a;
+#X obj 241 241 s \$0-current-rcv;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 8 0;
+#X connect 7 0 5 0;
+#X connect 8 1 9 0;
+#X connect 9 0 11 0;
+#X connect 9 1 12 0;
+#X connect 11 0 14 0;
+#X connect 12 0 14 0;
+#X connect 14 0 13 0;
+#X connect 14 0 15 0;
+#X coords 0 -1 1 1 135 42 1 10 10;
