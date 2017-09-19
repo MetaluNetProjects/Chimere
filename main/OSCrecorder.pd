@@ -1,4 +1,4 @@
-#N canvas 692 186 696 399 10;
+#N canvas 695 177 696 399 10;
 #X obj 101 84 r fromOSC;
 #X obj 259 198 text define \$0-seq;
 #X obj 101 130 t a b;
@@ -9,10 +9,9 @@
 #X obj 220 112 t b b b;
 #X msg 259 141 clear;
 #X msg 158 110 1;
-#X obj 220 62 bng 15 250 50 0 empty empty start 17 7 0 10 -4034 -1
+#X obj 220 62 bng 15 250 50 0 empty empty rec 17 7 0 10 -258113 -1
 -1;
-#X obj 283 62 bng 15 250 50 0 empty empty stop 17 7 0 10 -258113 -1
--1;
+#X obj 283 62 bng 15 250 50 0 empty empty stop 17 7 0 10 -1 -1 -1;
 #X msg 355 139 stop, f 5;
 #X msg 187 110 0;
 #X obj 101 226 text set \$0-seq 1e+06;
@@ -32,7 +31,7 @@
 #X obj 409 214 line 0 100;
 #X obj 504 227 div 60;
 #X obj 540 65 nbx 5 14 -1e+37 1e+37 0 0 empty empty seconds 0 -8 0
-10 -262144 -1 -1 11.1 256;
+10 -262144 -1 -1 4.7 256;
 #X obj 483 65 nbx 5 14 -1e+37 1e+37 0 0 empty empty minutes 0 -8 0
 10 -262144 -1 -1 0 256;
 #X msg 409 192 0 \, 10000 1e+07;

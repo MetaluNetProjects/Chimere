@@ -1,8 +1,8 @@
-#N canvas 29 364 564 315 10;
-#X obj 103 102 bng 15 250 50 0 empty empty start 17 7 0 10 -4034 -1
+#N canvas 30 362 564 315 10;
+#X obj 103 102 bng 15 250 50 0 empty empty rec 17 7 0 10 -258113 -1
 -1;
-#X obj 166 102 bng 15 250 50 0 empty empty stop 17 7 0 10 -258113 -1
--1;
+#X obj 166 102 bng 15 250 50 0 empty empty stop 17 7 0 10 -1 -1 -1
+;
 #X obj 228 102 bng 15 250 50 0 empty empty save 17 7 0 10 -260097 -1
 -1;
 #X obj 302 102 bng 15 250 50 0 empty empty replay 17 7 0 10 -257985
