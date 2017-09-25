@@ -1,4 +1,4 @@
-#N canvas 127 83 765 446 10;
+#N canvas 1121 82 793 452 10;
 #X declare -path abs -path remote;
 #X obj 3 9 cnv 15 180 390 empty empty SEQUENCE 100 12 0 14 -262130
 -66577 0;
@@ -7,12 +7,12 @@
 #X obj 11 49 seqb \$0 1;
 #X obj 188 10 cnv 15 570 315 empty empty Commandes_live 20 12 0 14
 -204800 -66577 0;
-#N canvas 380 208 939 652 guts 1;
+#N canvas 770 157 961 757 guts 1;
 #X obj 356 306 s CLIENT-toserver;
 #X obj 134 124 r CLIENT-fromserver;
 #X obj 134 166 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#N canvas 11 75 450 300 test_connected 0;
+#N canvas 9 81 450 300 test_connected 1;
 #X obj 39 90 s CLIENT-toserver;
 #X obj 39 111 r CLIENT-fromserver;
 #X msg 39 67 Echo test;
@@ -28,7 +28,7 @@
 #X msg 78 217 1;
 #X obj 39 242 change;
 #X obj 39 267 tgl 15 0 \$0-CONNECTED empty CONNECTED 17 7 0 10 -262144
--1 -1 0 1;
+-1 -1 1 1;
 #X obj 184 218 loadbang;
 #X msg 184 240 0;
 #X connect 1 0 3 0;
@@ -47,7 +47,7 @@
 #X connect 14 0 15 0;
 #X connect 15 0 13 0;
 #X restore 68 71 pd test_connected;
-#X obj 68 128 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 68 128 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 68 105 r \$0-CONNECTED;
 #X obj 68 323 s \$0-connected-can;
@@ -136,8 +136,22 @@
 #X obj 282 145 print;
 #X obj 89 504 print;
 #X obj 67 382 route monitor rorw seqdump seq OSCrec;
-#X obj 69 30 PdClient CLIENT CLIENT Chimere.local;
-#X obj 715 484 declare -path abs -path remote;
+#X obj 69 29 PdClient CLIENT CLIENT Chimere.local;
+#X obj 737 430 declare -path abs -path remote;
+#X obj 733 565 ggee/shell;
+#X msg 733 542 hostname;
+#X obj 733 519 del 100;
+#X symbolatom 695 659 10 0 0 0 - - -, f 10;
+#X obj 733 587 list;
+#X obj 830 502 r CLIENT-connected;
+#X obj 733 494 sel 1;
+#X obj 733 633 s CLIENT-toserver;
+#X obj 713 454 r \$0-CONNECTED;
+#X obj 691 614 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 733 610 remoteHOSTNAME \$1;
+#X obj 845 547 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X connect 1 0 56 0;
 #X connect 2 0 12 0;
 #X connect 4 0 10 0;
@@ -216,6 +230,16 @@
 #X connect 86 3 60 0;
 #X connect 86 3 62 0;
 #X connect 86 4 83 0;
+#X connect 89 0 93 0;
+#X connect 90 0 89 0;
+#X connect 91 0 90 0;
+#X connect 93 0 92 0;
+#X connect 93 0 98 0;
+#X connect 93 0 99 0;
+#X connect 94 0 95 0;
+#X connect 94 0 100 0;
+#X connect 95 0 91 0;
+#X connect 99 0 96 0;
 #X restore 625 331 pd guts;
 #X obj 268 364 hradio 30 1 0 2 \$0-rorw-snd \$0-rorw-rcv readwrite________readonly
 -75 23 0 14 -262144 -1 -1 0;
@@ -230,8 +254,8 @@
 1 15 0 12 -4034 -1 -1;
 #X obj 49 358 bng 30 250 50 0 \$0-saveSeq-snd \$0-saveSeq-rcv SAVE
 1 15 0 12 -1 -258113 -258113;
-#X obj 188 330 cnv 15 140 30 empty \$0-connected-can non_connecté
-10 15 0 14 -233017 -1 0;
+#X obj 188 330 cnv 15 140 30 empty \$0-connected-can probleme_moteur
+10 15 0 14 -258699 -1 0;
 #N canvas 11 155 244 278 resetZeros 0;
 #X obj 16 8 bng 40 250 50 0 \$0-resetZero1-snd \$0-resetZero1-rcv 1_
 15 20 0 20 -258113 -1 -1;
