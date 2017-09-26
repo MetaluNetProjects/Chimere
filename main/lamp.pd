@@ -1,4 +1,4 @@
-#N canvas 132 381 711 453 10;
+#N canvas 133 378 711 453 10;
 #X obj 68 165 pack f f;
 #X obj 68 123 t a b;
 #X obj 68 188 unpack f f;
@@ -40,6 +40,9 @@
 #X obj 313 293 fruit/send2 fruit\$1;
 #X obj 490 113 / 10;
 #X obj 490 154 * 10;
+#X obj 599 120 r STOPLAMPS;
+#X msg 599 142 0;
+#X obj 599 164 s \$3-val;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 1 1 17 0;
@@ -76,4 +79,6 @@
 #X connect 34 0 24 0;
 #X connect 36 0 30 0;
 #X connect 37 0 31 0;
+#X connect 38 0 39 0;
+#X connect 39 0 40 0;
 #X coords 0 -1 1 1 150 34 1 10 10;
