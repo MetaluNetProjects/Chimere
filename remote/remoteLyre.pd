@@ -1,8 +1,26 @@
-#N canvas 7 75 447 399 10;
+#N canvas 382 197 447 399 10;
 #X obj 10 170 remoteLAMPE \$1L1;
 #X obj 11 82 remoteSERVO \$1X;
 #X obj 11 38 remoteROT \$1R;
 #X obj 11 126 remoteSERVO \$1Y;
 #X obj 10 214 remoteLAMPE \$1L2;
 #X obj 10 258 remoteLAMPE \$1L3;
+#X obj 131 21 bng 15 250 50 0 \$1-clearAll \$1-clearAll z 5 7 0 10
+-262144 -1 -1;
+#X obj 258 129 r \$1-clearAll;
+#X obj 303 161 s \$1R-clear;
+#X obj 296 186 s \$1X-clear;
+#X obj 299 209 s \$1Y-clear;
+#X obj 287 230 s \$1L1-clear;
+#X obj 277 258 s \$1L2-clear;
+#X obj 270 291 s \$1L3-clear;
+#X obj 219 183 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X connect 7 0 8 0;
+#X connect 7 0 9 0;
+#X connect 7 0 10 0;
+#X connect 7 0 11 0;
+#X connect 7 0 12 0;
+#X connect 7 0 13 0;
+#X connect 7 0 14 0;
 #X coords 0 -1 1 1 137 282 1 10 20;

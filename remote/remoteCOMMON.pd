@@ -1,4 +1,4 @@
-#N canvas 8 75 450 300 10;
+#N canvas 1019 350 450 300 10;
 #X obj 35 100 r CLIENT_MONITOR;
 #X msg 35 189 \$1 \, label current:\$1;
 #X obj 203 158 s CLIENT_REMOTE;
@@ -20,6 +20,8 @@
 #X obj 35 211 s \$1-current-rcv;
 #X obj 338 133 loadbang;
 #X msg 338 155 0;
+#X obj 122 29 r \$2-clear;
+#X msg 122 51 0;
 #X connect 0 0 13 0;
 #X connect 1 0 17 0;
 #X connect 3 0 11 0;
@@ -38,3 +40,5 @@
 #X connect 18 0 19 0;
 #X connect 19 0 6 0;
 #X connect 19 0 1 0;
+#X connect 20 0 21 0;
+#X connect 21 0 16 0;

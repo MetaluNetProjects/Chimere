@@ -1,4 +1,4 @@
-#N canvas 1121 82 793 452 10;
+#N canvas 1031 86 793 446 10;
 #X declare -path abs -path remote;
 #X obj 3 9 cnv 15 180 390 empty empty SEQUENCE 100 12 0 14 -262130
 -66577 0;
@@ -7,12 +7,12 @@
 #X obj 11 49 seqb \$0 1;
 #X obj 188 10 cnv 15 570 315 empty empty Commandes_live 20 12 0 14
 -204800 -66577 0;
-#N canvas 770 157 961 757 guts 1;
+#N canvas 766 165 961 757 guts 0;
 #X obj 356 306 s CLIENT-toserver;
 #X obj 134 124 r CLIENT-fromserver;
 #X obj 134 166 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#N canvas 9 81 450 300 test_connected 1;
+#N canvas 5 89 450 300 test_connected 0;
 #X obj 39 90 s CLIENT-toserver;
 #X obj 39 111 r CLIENT-fromserver;
 #X msg 39 67 Echo test;
@@ -136,7 +136,6 @@
 #X obj 282 145 print;
 #X obj 89 504 print;
 #X obj 67 382 route monitor rorw seqdump seq OSCrec;
-#X obj 69 29 PdClient CLIENT CLIENT Chimere.local;
 #X obj 737 430 declare -path abs -path remote;
 #X obj 733 565 ggee/shell;
 #X msg 733 542 hostname;
@@ -230,16 +229,16 @@
 #X connect 86 3 60 0;
 #X connect 86 3 62 0;
 #X connect 86 4 83 0;
-#X connect 89 0 93 0;
+#X connect 88 0 92 0;
+#X connect 89 0 88 0;
 #X connect 90 0 89 0;
-#X connect 91 0 90 0;
-#X connect 93 0 92 0;
-#X connect 93 0 98 0;
+#X connect 92 0 91 0;
+#X connect 92 0 97 0;
+#X connect 92 0 98 0;
+#X connect 93 0 94 0;
 #X connect 93 0 99 0;
-#X connect 94 0 95 0;
-#X connect 94 0 100 0;
-#X connect 95 0 91 0;
-#X connect 99 0 96 0;
+#X connect 94 0 90 0;
+#X connect 98 0 95 0;
 #X restore 625 331 pd guts;
 #X obj 268 364 hradio 30 1 0 2 \$0-rorw-snd \$0-rorw-rcv readwrite________readonly
 -75 23 0 14 -262144 -1 -1 0;
@@ -275,3 +274,4 @@ STOPMOTORS 43 20 0 20 -258113 -1 -1;
 #X obj 475 35 remoteLyre 3;
 #X obj 616 35 remoteLyre 4;
 #X obj 195 399 OSCrecRemote \$0;
+#X obj 517 356 PdClient CLIENT CLIENT Chimere.local;
