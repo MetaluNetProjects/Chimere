@@ -1,4 +1,4 @@
-#N canvas 30 362 564 315 10;
+#N canvas 26 370 564 315 10;
 #X obj 103 102 bng 15 250 50 0 empty empty rec 17 7 0 10 -258113 -1
 -1;
 #X obj 166 102 bng 15 250 50 0 empty empty stop 17 7 0 10 -1 -1 -1
@@ -11,7 +11,7 @@
 #X obj 412 73 fmod 60;
 #X obj 368 73 div 60;
 #X obj 423 105 nbx 5 14 -1e+37 1e+37 0 0 empty empty seconds 0 -8 0
-10 -262144 -1 -1 0 256;
+10 -262144 -1 -1 11.1 256;
 #X obj 366 105 nbx 5 14 -1e+37 1e+37 0 0 empty empty minutes 0 -8 0
 10 -262144 -1 -1 0 256;
 #X obj 119 226 s \$1-OSCrec-snd;
@@ -21,6 +21,9 @@
 #X msg 205 170 save;
 #X msg 245 170 replay;
 #X obj 369 27 route time;
+#X obj 267 85 bng 15 250 50 0 empty empty reload 17 7 0 10 -4032 -1
+-1;
+#X msg 331 171 reload;
 #X connect 0 0 11 0;
 #X connect 1 0 12 0;
 #X connect 2 0 13 0;
@@ -35,4 +38,6 @@
 #X connect 13 0 9 0;
 #X connect 14 0 9 0;
 #X connect 15 0 4 0;
+#X connect 16 0 17 0;
+#X connect 17 0 9 0;
 #X coords 0 -1 1 1 400 40 1 100 80;

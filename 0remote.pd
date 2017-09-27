@@ -1,4 +1,4 @@
-#N canvas 1033 82 793 446 10;
+#N canvas 1031 86 793 446 10;
 #X declare -path abs -path remote;
 #X obj 3 9 cnv 15 180 390 empty empty SEQUENCE 100 12 0 14 -262130
 -66577 0;
@@ -7,12 +7,12 @@
 #X obj 11 49 seqb \$0 1;
 #X obj 188 10 cnv 15 570 315 empty empty Commandes_live 20 12 0 14
 -204800 -66577 0;
-#N canvas 768 161 961 757 guts 0;
+#N canvas 766 165 961 757 guts 0;
 #X obj 356 306 s CLIENT-toserver;
 #X obj 134 124 r CLIENT-fromserver;
 #X obj 134 166 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#N canvas 7 85 450 300 test_connected 1;
+#N canvas 5 89 450 300 test_connected 0;
 #X obj 39 90 s CLIENT-toserver;
 #X obj 39 111 r CLIENT-fromserver;
 #X msg 39 67 Echo test;
