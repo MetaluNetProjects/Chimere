@@ -131,6 +131,8 @@ void setup(void)
 
 	EEreadMain();
 	DCMOTOR(D).Setting.onlyPositive = 0; // disable automatic end switch protection
+	DCMOTOR(D).Setting.PosErrorGain = 4;
+	DCMOTOR(D).Setting.PosWindow = 10;
 	motorEndWasOn = 0;
 	delayStart(mainDelay, 5000); 	// init the mainDelay to 5 ms
 }
