@@ -1,4 +1,4 @@
-#N canvas 477 175 772 678 10;
+#N canvas 450 169 772 678 10;
 #X declare -path Fraise -stdpath Fraise;
 #X declare -path abs -path main;
 #X obj 21 38 pied/pied 0 41424;
@@ -195,7 +195,7 @@
 #X msg 497 461 load \$1;
 #X msg 497 439 1;
 #X obj 29 352 loadbang;
-#N canvas 15 193 562 386 SET_ZEROS 0;
+#N canvas 17 189 562 386 SET_ZEROS 0;
 #X obj 57 15 r MOT1-status-ok;
 #X obj 70 36 r MOT2-status-ok;
 #X obj 83 59 r MOT3-status-ok;
@@ -326,8 +326,6 @@
 #X connect 26 0 27 0;
 #X restore 133 343 pd OSC;
 #X obj 133 364 OSCrecorder;
-#X obj 282 628 s OSCrec-rcv;
-#X msg 282 607 replay;
 #N canvas 150 175 450 300 test 0;
 #X obj 118 111 s CONTROL;
 #X obj 118 54 hsl 128 15 0 100 0 0 empty empty empty -2 -8 0 10 -262144
@@ -337,7 +335,7 @@
 #X obj 275 81 hsl 128 15 -150 150 0 0 empty empty empty -2 -8 0 10
 -262144 -1 -1 0 1;
 #X obj 295 121 hsl 128 15 -150 150 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 12700 1;
+-262144 -1 -1 0 1;
 #X msg 370 148 set \$1;
 #X msg 321 148 3R \$1;
 #X msg 235 153 3R \$1 60;
@@ -349,9 +347,9 @@
 #X connect 6 0 4 0;
 #X connect 7 0 3 0;
 #X connect 8 0 3 0;
-#X restore 126 561 pd test;
+#X restore 140 563 pd test;
 #X obj 291 16 declare -path abs -path main;
-#N canvas 336 396 708 282 audioPlayer 0;
+#N canvas 337 394 708 282 audioPlayer 0;
 #X obj 70 234 *~;
 #X obj 116 235 *~;
 #X msg 186 184 \$1 10;
@@ -390,8 +388,7 @@
 #X restore 25 502 pd audioPlayer;
 #X obj 287 42 loadbang;
 #X msg 287 64 \; pd dsp 1;
-#X msg 335 606 stop;
-#N canvas 313 93 450 414 startButton 0;
+#N canvas 315 89 450 414 startButton 0;
 #X obj 100 193 shell;
 #X msg 71 104 gpio mode 0 up;
 #X msg 113 164 gpio read 0;
@@ -417,15 +414,9 @@
 #X connect 9 0 2 0;
 #X connect 10 0 7 0;
 #X connect 11 0 10 0;
-#X restore 229 417 pd startButton;
-#X obj 229 438 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X restore 208 414 pd startButton;
+#X obj 208 435 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 282 562 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 282 582 sel 1 0;
-#X obj 342 420 r OSCrec-snd;
-#X msg 342 464 set 0;
-#X obj 379 606 r STOPMOTORS;
 #X obj 98 355 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #N canvas 56 545 450 300 OFFSETS 0;
@@ -454,81 +445,22 @@
 #X connect 10 0 8 0;
 #X connect 11 0 10 0;
 #X restore 25 546 pd OFFSETS;
-#N canvas 6 74 450 300 longPush 0;
-#X obj 111 21 inlet;
-#X obj 111 43 change;
-#X obj 111 68 sel 1 0;
-#X obj 111 157 del 2000;
-#X msg 134 103 stop;
-#X msg 253 187 1;
-#X msg 221 187 0;
-#X obj 182 214 spigot;
-#X obj 181 235 outlet short;
-#X obj 89 235 outlet long;
-#X obj 123 134 del 500;
-#X connect 0 0 1 0;
-#X connect 1 0 2 0;
-#X connect 2 0 3 0;
-#X connect 2 0 5 0;
-#X connect 2 0 10 0;
-#X connect 2 1 4 0;
-#X connect 2 1 7 0;
-#X connect 3 0 9 0;
-#X connect 4 0 3 0;
-#X connect 4 0 10 0;
-#X connect 5 0 7 1;
-#X connect 6 0 7 1;
-#X connect 7 0 8 0;
-#X connect 10 0 6 0;
-#X restore 208 463 pd longPush;
-#X obj 342 442 route stop end;
-#X obj 282 502 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X msg 393 464 1;
-#X obj 357 519 spigot;
-#X obj 396 497 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X msg 357 564 1;
-#X obj 357 541 del 10;
-#X msg 389 564 set 1;
-#X obj 187 512 sel 0;
-#X obj 185 591 s STOPLAMPS;
-#X obj 230 569 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 460 563 s STOPLAMPS;
+#X obj 464 516 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 21 378 sel 1;
 #X obj 348 118 lyre 3 2460;
 #X obj 189 118 lyre 2 2460;
 #X obj 31 118 lyre 1 2460;
 #X obj 506 118 lyre 4 2460;
-#X connect 0 0 39 0;
+#X obj 208 456 start;
+#X connect 0 0 21 0;
 #X connect 4 0 3 0;
 #X connect 5 0 4 0;
-#X connect 11 0 10 0;
+#X connect 13 0 14 0;
 #X connect 15 0 16 0;
-#X connect 17 0 10 0;
-#X connect 18 0 19 0;
-#X connect 19 0 27 0;
-#X connect 20 0 21 0;
-#X connect 21 0 11 0;
-#X connect 21 1 17 0;
-#X connect 22 0 28 0;
-#X connect 23 0 29 0;
-#X connect 24 0 17 0;
-#X connect 25 0 7 0;
-#X connect 27 0 7 0;
-#X connect 27 1 29 0;
-#X connect 28 0 23 0;
-#X connect 28 0 37 0;
-#X connect 28 1 30 0;
-#X connect 29 0 32 0;
-#X connect 29 0 20 0;
-#X connect 29 0 36 0;
-#X connect 30 0 31 0;
-#X connect 31 0 34 0;
-#X connect 32 0 31 1;
-#X connect 33 0 20 0;
-#X connect 34 0 33 0;
-#X connect 34 0 35 0;
-#X connect 35 0 29 0;
-#X connect 38 0 37 0;
-#X connect 39 0 7 0;
+#X connect 16 0 26 0;
+#X connect 17 0 7 0;
+#X connect 20 0 19 0;
+#X connect 21 0 7 0;
+#X connect 26 0 7 0;
